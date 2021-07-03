@@ -51,6 +51,8 @@ img {
   margin: auto;
   overflow: hidden;
   padding: 0 2rem;
+  overflow-x: auto;
+  overflow-wrap: break-word;
 }
 
 /* Text Styles*/
