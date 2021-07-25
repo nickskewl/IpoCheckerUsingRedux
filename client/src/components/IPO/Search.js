@@ -11,9 +11,8 @@ const Search = () => {
 
     if (text === "") {
       //   alertContext.setAlert("Please enter something", "danger");
-      console.log("Enter Text");
     } else {
-      console.log(text);
+      // console.log(text);
       ipoContext.searchIpoAllotment(text);
       //   setText("");
     }

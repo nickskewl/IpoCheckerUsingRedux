@@ -54,7 +54,7 @@ const IpoState = (props) => {
           console.log("Error in PAN Search: " + error);
         }
       } //for loop exit
-      console.log(ipoDataTemp);
+      // console.log(ipoDataTemp);
     } catch (err) {
       console.log("Error in fetching IPOs: " + err);
     }
