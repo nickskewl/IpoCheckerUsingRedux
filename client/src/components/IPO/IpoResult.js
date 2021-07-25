@@ -1,12 +1,9 @@
-import React, { useContext, useMemo } from "react";
-import IpoContext from "../../context/IPO/ipoContext";
+import React, { useMemo } from "react";
+import { connect } from "react-redux";
 import Spinner from "../layout/Spinner";
 import Table from "./Table";
 
-const IpoResult = () => {
-  const ipoContext = useContext(IpoContext);
-
-  const { loading, ipoData } = ipoContext;
+const IpoResult = ({ ipo: { loading, ipoData } }) => {
   const columns = useMemo(
     () => [
       {
@@ -54,4 +51,8 @@ const IpoResult = () => {
   );
 };
 
-export default IpoResult;
+const mapStateToProps = (state) => ({
+  ipo: state.ipo,
+});
+
+export default connect(mapStateToProps)(IpoResult);

@@ -1,13 +1,17 @@
-import { SEARCH, SET_LOADING } from "../types";
+import { SEARCH, SET_LOADING } from "../action/types";
 
-const ipoReducer = (state, action) => {
+const initialState = {
+  loading: false,
+  ipoData: [],
+};
+
+export default (state = initialState, action) => {
   switch (action.type) {
     case SEARCH:
       return {
         ...state,
         ipoData: action.payload,
         loading: false,
-        // searchResult: true,
       };
 
     case SET_LOADING:
@@ -20,5 +24,3 @@ const ipoReducer = (state, action) => {
       return state;
   }
 };
-
-export default ipoReducer;

@@ -1,14 +1,15 @@
+import { Provider } from "react-redux";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import "./App.css";
 import Navbar from "./components/layout/Navbar";
 import About from "./components/pages/About";
 import Home from "./components/pages/Home";
 import NotFound from "./components/pages/NotFound";
-import IpoState from "./context/IPO/IpoState";
+import store from "./store";
 
 const App = () => {
   return (
-    <IpoState>
+    <Provider store={store}>
       <BrowserRouter>
         <Navbar />
         <div className="container">
@@ -19,7 +20,7 @@ const App = () => {
           </Switch>
         </div>
       </BrowserRouter>
-    </IpoState>
+    </Provider>
   );
 };
 

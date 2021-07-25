@@ -1,20 +1,16 @@
 import React, { useState, useContext } from "react";
-import IpoContext from "../../context/IPO/ipoContext";
+// import IpoContext from "../../context/IPO/ipoContext";
+import { connect } from "react-redux";
+import { searchIpoAllotment } from "../../action/ipoActions";
 
-const Search = () => {
+const Search = ({ searchIpoAllotment }) => {
   const [text, setText] = useState("");
-
-  const ipoContext = useContext(IpoContext);
 
   const onSubmit = (e) => {
     e.preventDefault();
 
-    if (text === "") {
-      //   alertContext.setAlert("Please enter something", "danger");
-    } else {
-      // console.log(text);
-      ipoContext.searchIpoAllotment(text);
-      //   setText("");
+    if (text !== "") {
+      searchIpoAllotment(text);
     }
   };
 
@@ -38,16 +34,8 @@ const Search = () => {
           className="btn btn-dark btn-block"
         />
       </form>
-      {/* {githubContext.users.length > 0 && (
-        <button
-          className="btn btn-light btn-block"
-          onClick={githubContext.clearUsers}
-        >
-          Clear
-        </button>
-      )} */}
     </div>
   );
 };
 
-export default Search;
+export default connect(null, { searchIpoAllotment })(Search);
